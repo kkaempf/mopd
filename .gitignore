@@ -1,0 +1,8 @@
+*.a
+VERSION
+version.c
+version.h
+mopchk/mopchk
+mopd/mopd
+mopprobe/mopprobe
+moptrace/moptrace
