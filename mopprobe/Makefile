@@ -7,6 +7,10 @@ all: mopprobe
 mopprobe: ${OBJS} version.o $(LIBS)
 	cc -o mopprobe version.o ${OBJS} ${LIBS}
 
+install: all
+	install -m 755 mopprobe $(DESTDIR)$(BINDIR)
+	install -m 644 mopprobe.1 $(DESTDIR)$(MANDIR)/man1
+
 .c.o: .c
 	cc -c $(CFLAGS) ${INCL} $<
 	

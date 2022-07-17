@@ -7,6 +7,10 @@ all: moptrace
 moptrace: ${OBJS} version.o $(LIBS)
 	cc -o moptrace version.o ${OBJS} ${LIBS}
 
+install: all
+	install -m 755 moptrace $(DESTDIR)$(BINDIR)
+	install -m 644 moptrace.1 $(DESTDIR)$(MANDIR)/man1
+
 .c.o: .c
 	cc -c $(CFLAGS) ${INCL} $<
 	

@@ -7,6 +7,10 @@ all: mopd
 mopd: ${OBJS} version.o $(LIBS)
 	cc -o mopd version.o ${OBJS} ${LIBS}
 
+install: all
+	install -m 755 mopd $(DESTDIR)$(BINDIR)
+	install -m 644 mopd.8 $(DESTDIR)$(MANDIR)/man8
+
 .c.o: .c
 	cc -c $(CFLAGS) ${INCL} $<
 	

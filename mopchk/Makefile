@@ -7,6 +7,10 @@ all: mopchk
 mopchk: ${OBJS} version.o $(LIBS)
 	cc -o mopchk version.o ${OBJS} ${LIBS}
 
+install: all
+	install -m 755 mopchk $(DESTDIR)$(BINDIR)
+	install -m 644 mopchk.1 $(DESTDIR)$(MANDIR)/man1
+
 .c.o: .c
 	cc -c $(CFLAGS) ${INCL} $<
 	
